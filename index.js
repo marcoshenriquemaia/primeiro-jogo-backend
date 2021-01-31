@@ -13,11 +13,11 @@ app.post('/', (req, res) => {
 
   data.push({ nick: nick ? nick : 'Sem nick', record })
 
-  res.status(200).json({ recordList: data.sort((a,b) => a.record + b.record).reverse() })
+  res.status(200).json({ recordList: data.sort((a,b) => a.record - b.record).reverse() })
 })
 
 app.get('/', (req, res) => {
-  res.status(200).json({ recordList: data.sort((a,b) => a.record + b.record).reverse() })
+  res.status(200).json({ recordList: data.sort((a,b) => a.record - b.record).reverse() })
 })
 
 
