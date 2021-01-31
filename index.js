@@ -9,13 +9,11 @@ app.use(cors())
 app.use(express.json())
 
 app.post('/', (req, res) => {
-
-  console.log(req.body)
   const { nick, record } = req.body;
 
   data.push({ nick: nick ? nick : 'Sem nick', record })
 
-  res.status(200).json({ nick, record })
+  res.status(200).json({ recordList: data.sort((a,b) => a.record + b.record).reverse() })
 })
 
 app.get('/', (req, res) => {
